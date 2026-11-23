@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "X 书签每日回顾",
+  "version": "0.2.2",
+  "description": "每天从你的 X 书签里抽取固定条数回顾。数据只存在本机。",
+  "minimum_chrome_version": "111",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "X 书签每日回顾",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["storage", "unlimitedStorage", "alarms", "notifications"],
+  "host_permissions": ["https://x.com/*", "https://twitter.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://x.com/*", "https://twitter.com/*"],
+      "js": ["content/hook.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://x.com/*", "https://twitter.com/*"],
+      "js": ["lib/parse.js", "content/bridge.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
