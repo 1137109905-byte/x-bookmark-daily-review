@@ -552,3 +552,59 @@ input[type="time"].num-in { width: 104px; }
   .navbtn svg { width: 18px; height: 18px; }
   .lc-title { font-size: 16.5px; }
 }
+
+/* ---------- 方案 A: 底部署名与设置页关于区 ---------- */
+.site-footer {
+  margin-top: 40px;
+  padding-top: 16px;
+  border-top: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
+  display: flex;
+  justify-content: center;
+}
+.site-footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 12.5px;
+  text-decoration: none;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+.site-footer-link:hover {
+  color: var(--ink);
+  background: color-mix(in srgb, var(--ink) 5%, transparent);
+}
+.fj-mark { flex: none; display: block; }
+
+.about-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+.about-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+  flex: none;
+}
+.about-logo .ico { display: inline-flex; }
+.about-logo svg { width: 32px; height: 32px; }
+.about-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.ver-pill {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+.btn-link { text-decoration: none; display: inline-flex; align-items: center; }

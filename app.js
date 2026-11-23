@@ -64,6 +64,7 @@
     trash: svg('<path d="M4 7h16M10 11v6M14 11v6M6 7l1 12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1l1-12M9 7V4h6v3"/>'),
     chevL: svg('<path d="M15 5l-7 7 7 7"/>'),
     chevR: svg('<path d="M9 5l7 7-7 7"/>'),
+    fengjin: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="1.5" y="1.5" width="21" height="21" rx="6" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><path d="M6.5 9.5C9.5 7.5 13 7.5 15.8 9.2C17 9.9 18 9.3 18 8.1" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round"/><path d="M6.5 13.2C10 11.4 13.5 11.8 16.8 13.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity="0.85"/><path d="M6.5 16.5C9.2 15.4 11.6 15.6 13.6 16.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.55"/></svg>',
   };
   function icon(name) {
     const s = document.createElement('span');
@@ -1081,7 +1082,26 @@
         'div',
         { class: 'panel' },
         h('div', { class: 'row' }, h('div', { class: 'lab' }, h('b', { text: '隐私' }), h('small', { text: '扩展只读取你在浏览器里已登录的 X 页面自己加载的书签数据,不使用 X 的接口密钥,也不会把任何内容发到别的服务器。全部数据都存在这台电脑的浏览器里。' }))),
-        h('div', { class: 'row' }, h('div', { class: 'lab' }, h('b', { text: '版本' }), h('small', { text: 'X 书签每日回顾 ' + chrome.runtime.getManifest().version })))
+        h(
+          'div',
+          { class: 'row about-row' },
+          h(
+            'div',
+            { class: 'about-brand' },
+            h('span', { class: 'about-logo' }, icon('fengjin')),
+            h(
+              'div',
+              { class: 'lab' },
+              h('b', { class: 'about-title' }, 'X 书签每日回顾', h('span', { class: 'ver-pill', text: 'v' + chrome.runtime.getManifest().version })),
+              h('small', { text: '作者：风锦 · 纯本地运行，数据只留在你的浏览器' })
+            )
+          ),
+          h(
+            'div',
+            { class: 'ctl' },
+            h('a', { class: 'btn btn-link', href: 'https://github.com/1137109905-byte/x-bookmark-daily-review', target: '_blank', rel: 'noopener noreferrer', text: 'GitHub 开源仓库 ↗' })
+          )
+        )
       )
     );
   }
